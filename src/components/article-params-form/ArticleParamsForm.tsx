@@ -56,11 +56,13 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 		setIsOpen((prev) => !prev);
 	};
 
-	const handleChange = (key: keyof ArticleStateType, selected: OptionType) => {
-		setFormState((prevState) => ({
-			...prevState,
-			[key]: selected,
-		}));
+	const updateFormField = (field: keyof ArticleStateType) => {
+		return (value: OptionType) => {
+			setFormState((prevState) => ({
+				...prevState,
+				[field]: value,
+			}));
+		};
 	};
 
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -91,33 +93,33 @@ export const ArticleParamsForm = ({ onApply }: ArticleParamsFormProps) => {
 						title='Шрифт'
 						selected={formState.fontFamilyOption}
 						options={fontFamilyOptions}
-						onChange={(selected) => handleChange('fontFamilyOption', selected)}
+						onChange={updateFormField('fontFamilyOption')}
 					/>
 					<RadioGroup
 						title='Размер шрифта'
 						selected={formState.fontSizeOption}
 						options={fontSizeOptions}
-						onChange={(selected) => handleChange('fontSizeOption', selected)}
+						onChange={updateFormField('fontSizeOption')}
 						name='fontSize'
 					/>
 					<Select
 						title='Цвет шрифта'
 						selected={formState.fontColor}
 						options={fontColors}
-						onChange={(selected) => handleChange('fontColor', selected)}
+						onChange={updateFormField('fontColor')}
 					/>
 					<Separator />
 					<Select
 						title='Цвет фона'
 						selected={formState.backgroundColor}
 						options={backgroundColors}
-						onChange={(selected) => handleChange('backgroundColor', selected)}
+						onChange={updateFormField('backgroundColor')}
 					/>
 					<Select
 						title='Ширина контента'
 						selected={formState.contentWidth}
 						options={contentWidthArr}
-						onChange={(selected) => handleChange('contentWidth', selected)}
+						onChange={updateFormField('contentWidth')}
 					/>
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' htmlType='reset' type='clear' />
