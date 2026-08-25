@@ -1,54 +1,54 @@
-# Проектная работа: Вёрстка проекта
+# Blog Customizer
 
-## Шаг первый. Изучаем имеющиеся компоненты
+Blog Customizer is a React application with a settings panel that allows the user to change the appearance of an article.
 
-[Макет проекта](https://www.figma.com/file/FEeiiGLOsE7ktXbPpBxYoD/Custom-dropdown?type=design&node-id=0%3A1&mode=design&t=eXRJnWC6Xsuw0qR4-1)
+The main task in the project was to keep the form state separate from the settings currently applied to the page. Changes are previewed in the form and applied only after the user confirms them.
 
-Для запуска Storybook выполните:
+## Features
 
+- collapsible settings panel;
+- article style customization;
+- separate form and applied state;
+- reset to initial settings;
+- CSS-variable-based styling;
+- click-outside behavior for closing the panel.
+
+## Tech stack
+
+- React
+- TypeScript
+- SCSS
+- Webpack
+- Storybook
+- ESLint
+- Stylelint
+- Prettier
+
+## Getting started
+
+```bash
+git clone https://github.com/person5494/blog-customizer.git
+cd blog-customizer
+npm install
+npm start
 ```
+
+Storybook can be started separately:
+
+```bash
 npm run storybook
 ```
 
-Для запуска линтера для стилей выполните:
+## Useful commands
 
-```
-npm run stylelint
-```
-
-Для запуска линтера выполните:
-
-```
+```bash
+npm start
+npm run build
 npm run lint
+npm run stylelint
+npm run storybook
 ```
 
-Для запуска форматтера выполните:
+## About the project
 
-```
-npm run format
-```
-
-### Функциональные требования
-
-- При нажатии на «стрелку» открывается сайдбар с настройками, при повторном нажатии или клике вне сайдбар закрывается.
-- При изменении настроек в сайдбаре они не применяются сразу.
-- После нажатия на «применить» стили применяются к статье.
-- При нажатии «сбросить» настройки в форме сбрасываются на начальные, которые были при открытии страницы, и стили применяются к статье.
-- Настройки устанавливаются через CSS-переменные, которые уже есть в стилях и установлены в коде в дефолтные значения.
-
-## Шаг второй. Реализация формы
-
-Продумайте следующие моменты, прежде чем приступать к коду: 
-
-- как будет организована композиция,
-- где вы будете хранить состояние,
-- как передавать данные между формой и страницей.
-
-Затем реализуйте механику открытия-закрытия панели с формой, после этого можно будет временно зафиксировать ее пропсом для удобства реализации.
-
-После этого реализуйте форму из имеющихся компонент согласно макету.
-
-
-## Шаг третий. Обеспечьте передачу данных между формой и страницей
-
-Реализуйте по отдельности сохранение состояния страницы и состояние формы. Обеспечьте применение нового состояния после нажатия на «применить».
+This project was completed as part of the Yandex Practicum Frontend Developer course. The initial project contained the basic components and styling setup; my work focused on implementing the settings form behavior and connecting it to the article appearance.
